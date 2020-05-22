@@ -13,6 +13,7 @@ button{
     border-radius: 10px;
     box-shadow: 2px 4px 4px lightgray;
     transition-duration: 0.4s;
+    margin: 10px;
 }
 button:hover{
     background-color: white;
@@ -28,6 +29,10 @@ form{
     flex-direction: column;
     align-items: center;
     padding: 5px;
+}
+input{
+    border: black solid 1px;
+    box-shadow: 2px 2px 0px #eb9c91;
 }
 input[type=text]{
     width: 75px;

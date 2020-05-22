@@ -5,15 +5,16 @@ import Page from "./../components/Layout/Page";
 
 export default function Home() {
 
-  const createEvent = () => {
-    console.log("click")
+  const goToCreate = () => {
+    // console.log("click")
+    window.location.href = "/create"
   }
 
   return (
     <Page margin="10vw">
       <Title>rsvPlz</Title>
       <Section>
-        <button onClick={createEvent}>create an event</button>
+        <button onClick={goToCreate}>create an event</button>
       </Section>
     </Page>
   )

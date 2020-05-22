@@ -21,4 +21,21 @@ button:hover{
 }
 button:focus{
     border: none;
+    outline: #eb9c91 solid 2px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+input[type=text]{
+    width: 75px;
+    transition: ease-in-out, width .55s ease-in-out;
+}
+input[type=text]:focus{
+    width: 150px;
+}
+input:focus{
+    outline: #eb9c91 solid 2px;
 }

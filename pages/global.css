@@ -11,5 +11,14 @@ button{
     padding: 15px;
     border: 0px solid #ffa06e;
     border-radius: 10px;
-    box-shadow: 4px 4px 4px lightgray;
+    box-shadow: 2px 4px 4px lightgray;
+    transition-duration: 0.4s;
+}
+button:hover{
+    background-color: white;
+    color: #eb9c91;
+    border: 2px solid #eb9c91;
+}
+button:focus{
+    border: none;
 }

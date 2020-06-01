@@ -1,4 +1,4 @@
-import Router from "next/router";
+import { useRouter } from "next/router";
 import Title from "./../../components/Layout/Title";
 import Section from "./../../components/Layout/Section";
 import Page from "./../../components/Layout/Page";
@@ -6,7 +6,8 @@ import Page from "./../../components/Layout/Page";
 
 export default function Event() {
 
-    const {id} = Router.query
+    const Router = useRouter();
+    const {id} = Router.query;
 
   const goToCreate = () => {
     console.log(id)

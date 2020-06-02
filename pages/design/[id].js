@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Title from "./../../components/Layout/Title";
 import Section from "./../../components/Layout/Section";
 import Page from "./../../components/Layout/Page";
-import SoftButton from "./../../components/Form/SoftButton";
+import Chunk from "../../components/Layout/Chunk";
 
 
 export default function Design() {
@@ -25,10 +25,13 @@ export default function Design() {
 
   const componentList = ["Title","Paragraph","Image","Link"];
 
-  // MAP over componentList
-
   const addButtons = componentList.map((component) => 
-    <button className="softButton" element={component} onClick={() => addElement(component)}>{component}</button>
+    <button key={component} className="softButton" element={component} onClick={() => addElement(component)}>{component}</button>
+  );
+
+  // map over layout
+  const mapLayout = layout.map((element) => 
+    <Chunk element={element}></Chunk>
   );
 
   const display = exampleEvent;
@@ -43,7 +46,7 @@ export default function Design() {
               </Section>
           </div>
           <div style={{width: "50%"}}>
-            <Section>{layout}</Section>
+            <Section>{mapLayout}</Section>
           </div>
           <button>preview</button>
       </Section>

@@ -17,7 +17,7 @@ export default function Create() {
         event.preventDefault();
         // console.log("click")
         // INSERT API Post here
-        Router.push("/event/[id]","/event/test")
+        Router.push("/design/[id]","/design/test")
     }
 
     return (

@@ -12,7 +12,7 @@ button{
     border: 0px solid #ffa06e;
     border-radius: 10px;
     box-shadow: 2px 4px 4px lightgray;
-    transition-duration: 0.4s;
+    transition-duration: 0.2s;
     margin: 10px;
 }
 button:hover{
@@ -43,4 +43,18 @@ input[type=text]:focus{
 }
 input:focus{
     outline: #eb9c91 solid 2px;
+}
+.softButton{
+    padding: 10px;
+    background-color: white;
+    color: #9baaeb;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px lightgray;
+    border: 2px solid #9baaeb;
+    transition-duration: 0.2s;
+    margin: 3px;
+}
+.softButton:hover{
+    background-color: #9baaeb;
+    color: white;
 }

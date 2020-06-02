@@ -23,10 +23,12 @@ export default function Design() {
     end_time: "12:00 PM"
   }
 
-  const componentList = ["Title","Paragraph","Image","Link"];
+  const componentList = [
+    {name: "Title",class: "title",text:"Title"},
+  ];
 
   const addButtons = componentList.map((component) => 
-    <button key={component} className="softButton" element={component} onClick={() => addElement(component)}>{component}</button>
+    <button key={component.name} className="softButton" element={component} onClick={() => addElement(component)}>{component.name}</button>
   );
 
   // map over layout

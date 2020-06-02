@@ -1,11 +1,8 @@
-export default function Design(props) {
-
-    const style={
-    }
+export default function Chunk(props) {
 
     return (
-      <div style={style}>
-          **{props.element}**
+      <div className={props.element.class} style={props.element.style}>
+          {props.element.text}
       </div>
     )
   }

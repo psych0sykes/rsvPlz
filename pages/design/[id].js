@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Title from "./../../components/Layout/Title";
 import Section from "./../../components/Layout/Section";
@@ -7,13 +8,13 @@ import SoftButton from "./../../components/Form/SoftButton";
 
 export default function Design() {
 
-    const Router = useRouter();
-    const {id} = Router.query;
+  const Router = useRouter();
+  const {id} = Router.query;
+  const [layout,setLayout] = useState([])
 
-  const goToCreate = () => {
-    console.log(id)
-    // window.location.href = "/create"
-  }
+  const addElement = (newElement) => {
+    setLayout(layout => [...layout, newElement])
+  };
 
   const exampleEvent = {
     title: "Test Event",
@@ -24,6 +25,12 @@ export default function Design() {
 
   const componentList = ["Title","Paragraph","Image","Link"];
 
+  // MAP over componentList
+
+  const addButtons = componentList.map((component) => 
+    <button className="softButton" element={component} onClick={() => addElement(component)}>{component}</button>
+  );
+
   const display = exampleEvent;
 
   return (
@@ -32,14 +39,11 @@ export default function Design() {
       <Section>
           <div style={{width: "50%"}}>
               <Section>
-                  <SoftButton>Title</SoftButton>
-                  <SoftButton>Paragraph</SoftButton>
-                  <SoftButton>Image</SoftButton>
-                  <SoftButton>Link</SoftButton>
+                  {addButtons}
               </Section>
           </div>
           <div style={{width: "50%"}}>
-              <Section>Right</Section>
+            <Section>{layout}</Section>
           </div>
           <button>preview</button>
       </Section>

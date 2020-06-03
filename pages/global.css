@@ -60,3 +60,18 @@ input:focus{
     background-color: #9baaeb;
     color: white;
 }
+.eventDate{
+    text-align: center;
+}
+.paragraph{
+    text-align: center;
+}
+.eventTimes{
+    text-align: center;
+}
+.chunk{
+    margin-right: 20px;
+}
+.chunk:hover{
+    outline: #eb9c91 solid 2px;
+}

@@ -43,9 +43,14 @@ export default function Design() {
     <button key={component.name} className="softButton" element={component} onClick={() => addElement(component)}>{component.name}</button>
   );
 
+  const showEdit = (e,order) => {
+    // console.log(e.target);
+    console.log("edit layout item: " + order);
+  }
+
   // map over layout
   const mapLayout = layout.map((element) =>
-    <Chunk key={element.order} element={element}></Chunk>
+    <Chunk key={element.order} element={element} show="true" edit={(event) => showEdit(event,element.order)}></Chunk>
   );
 
   const display = exampleEvent;
@@ -53,17 +58,15 @@ export default function Design() {
   return (
     <Page margin="10vw">
       <Title size="50px">{display.title}</Title>
-      <Section>
-          <div style={{width: "50%"}}>
-              <Section>
-                  {addButtons}
-              </Section>
-          </div>
-          <div style={{width: "50%"}}>
-            <Section direction="column">{mapLayout}</Section>
-          </div>
+        <Section>
+          {addButtons}
+        </Section>
+        <Section direction="column" top="40px">
+          {mapLayout}
+        </Section>
+        <Section>
           <button>preview</button>
-      </Section>
+        </Section>
     </Page>
   )
 }

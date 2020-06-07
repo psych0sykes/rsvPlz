@@ -7,7 +7,7 @@ import Input from "../components/Form/Input";
 
 export default function Create() {
 
-    const [eventName,setEventName] = useState();
+    const [eventName,setEventName] = useState("Test Event");
     const [date,setDate] = useState();
     const [startTime,setStartTime] = useState();
     const [endTime,setEndTime] = useState();
@@ -24,7 +24,7 @@ export default function Create() {
         <Page margin="10vw">
         <Title size="50px">rsvPlz</Title>
         <form>
-            <Input label="event name" type="text" cb={(event) => setEventName(event.target.value)}/>
+            <Input label="event name" type="text" value={eventName} cb={(event) => setEventName(event.target.value)}/>
             <Input label="date" type="date" cb={(event) => setDate(event.target.value)}/>
             <Input label="start time" type="time" cb={(event) => setStartTime(event.target.value)}/>
             <Input label="end time" type="time" cb={(event) => setEndTime(event.target.value)}/>

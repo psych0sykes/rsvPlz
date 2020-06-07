@@ -10,7 +10,7 @@ export default function CenterInput(props) {
     return (
       <div style={style}>
           <div style={{marginRight: "10px"}}>{props.label}</div>
-          <input type={props.type} onChange={props.cb}></input>
+          <input attr={props.label} type={props.type} size={props.size} onChange={props.cb} value={props.value}></input>
       </div>
     )
   }

@@ -1,42 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Title from "./../../components/Layout/Title";
 import Section from "./../../components/Layout/Section";
 import Page from "./../../components/Layout/Page";
 import Chunk from "../../components/Layout/Chunk";
+import EditChunk from "./../../components/Form/EditChunk";
 
 
 export default function Design() {
 
   const Router = useRouter();
   const {id} = Router.query;
-  const [layout,setLayout] = useState([]);
   const [event,setEvent] = useState({
     title: "Test Event",
     date: "08/01/2020",
     start_time: "10:00 AM",
     end_time: "12:00 PM"
-  })
+  });
+  const [layout,setLayout] = useState([
+    {name: "Title",class: "title",style: {color: "#333333"},text: event.title,order: 0},
+    {name: "Paragraph",class: "paragraph",style: {color: "#333333"},text:"(your text goes here)",order: 1},
+    {name: "Event Times",class: "eventTimes",style: {color: "#333333"},text: event.start_time + " - " + event.end_time,order: 2},
+    {name: "Event Date",class: "eventDate",style: {color: "#333333"},text: event.date,order: 3}
+  ]);
+  const [edit,setEdit] = useState(0);
 
   const addElement = (newElement) => {
-    setLayout(layout => [...layout, newElement])
-    console.log(layout)
+    setLayout(layout => [...layout, newElement]);
+    console.log(layout);
   };
-
-  const exampleEvent = {
-    title: "Test Event",
-    date: "08/01/2020",
-    start_time: "10:00 AM",
-    end_time: "12:00 PM"
-  }
 
   const orderElements = () => {return layout.length}
 
   const componentList = [
-    {name: "Title",class: "title",text: event.title,order: orderElements()},
-    {name: "Paragraph",class: "paragraph",text:"(your text goes here)",order: orderElements()},
-    {name: "Event Times",class: "eventTimes",text: event.start_time + " - " + event.end_time,order: orderElements()},
-    {name: "Event Date",class: "eventDate",text: event.date,order: orderElements()}
+    {name: "Title",class: "title",style: {color: "#333333"},text: event.title,order: orderElements()},
+    {name: "Paragraph",class: "paragraph",style: {color: "#333333"},text:"(your text goes here)",order: orderElements()},
+    {name: "Event Times",class: "eventTimes",style: {color: "#333333"},text: event.start_time + " - " + event.end_time,order: orderElements()},
+    {name: "Event Date",class: "eventDate",style: {color: "#333333"},text: event.date,order: orderElements()}
   ];
 
   const addButtons = componentList.map((component) => 
@@ -46,18 +46,24 @@ export default function Design() {
   const showEdit = (e,order) => {
     // console.log(e.target);
     console.log("edit layout item: " + order);
-  }
+    setEdit(order)
+  };
+
+  const setElementState = (event) => {
+    console.log(event.target.value);
+    console.log(event.target)
+    console.log(layout[edit]);
+  };
 
   // map over layout
   const mapLayout = layout.map((element) =>
     <Chunk key={element.order} element={element} show="true" edit={(event) => showEdit(event,element.order)}></Chunk>
   );
 
-  const display = exampleEvent;
-
   return (
     <Page margin="10vw">
-      <Title size="50px">{display.title}</Title>
+      <EditChunk element={layout[edit]} display="block" handleState={setElementState}>wow</EditChunk>
+      <Title size="50px">{event.title}</Title>
         <Section>
           {addButtons}
         </Section>

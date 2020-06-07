@@ -46,6 +46,10 @@ input[type=text]:focus{
 input:focus{
     outline: #eb9c91 solid 2px;
 }
+input[type=range]{
+    box-shadow: none;
+    background: black;
+}
 .softButton{
     padding: 10px;
     background-color: white;
@@ -57,7 +61,23 @@ input:focus{
     margin: 3px;
 }
 .softButton:hover{
+    border: 2px solid #9baaeb;
     background-color: #9baaeb;
+    color: white;
+}
+.mildButton{
+    padding: 10px;
+    background-color: white;
+    color: #eb9c91;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px lightgray;
+    border: 2px solid #eb9c91;
+    transition-duration: 0.2s;
+    margin: 3px;
+}
+.mildButton:hover{
+    border: 2px solid #eb9c91;
+    background-color: #eb9c91;
     color: white;
 }
 .eventDate{
@@ -74,4 +94,7 @@ input:focus{
 }
 .chunk:hover{
     outline: #eb9c91 solid 2px;
+}
+.editChunk{
+
 }

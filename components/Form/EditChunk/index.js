@@ -19,7 +19,7 @@ export default function EditChunk(props) {
     <div style={style}>
       <Section className="editChunk" direction="column">
         <Input label="text" type="text" value={props.element.text} cb={(event) => props.handleState(event)}></Input>
-        <Input label="color" type="text" value={props.element.style.color} cb={(event) => props.handleState(event)}></Input>
+        <Input label="color" type="text" value={props.element.color} cb={(event) => props.handleState(event)}></Input>
         {/* <Input label="size (px)" value={element.size} type="range"></Input> */}
         <Section>
         <button className="mildButton" type="submit" value="Submit" onClick={(event)=>handleSubmit(event)}>save</button>

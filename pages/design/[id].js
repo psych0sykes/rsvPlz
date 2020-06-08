@@ -18,10 +18,10 @@ export default function Design() {
     end_time: "12:00 PM"
   });
   const [layout,setLayout] = useState([
-    {name: "Title",class: "title",style: {color: "#333333"},text: event.title,order: 0},
-    {name: "Paragraph",class: "paragraph",style: {color: "#333333"},text:"(your text goes here)",order: 1},
-    {name: "Event Times",class: "eventTimes",style: {color: "#333333"},text: event.start_time + " - " + event.end_time,order: 2},
-    {name: "Event Date",class: "eventDate",style: {color: "#333333"},text: event.date,order: 3}
+    {name: "Title",class: "title",color: "#333333",text: event.title,order: 0},
+    {name: "Paragraph",class: "paragraph",color: "#333333",text:"(your text goes here)",order: 1},
+    {name: "Event Times",class: "eventTimes",color: "#333333",text: event.start_time + " - " + event.end_time,order: 2},
+    {name: "Event Date",class: "eventDate",color: "#333333",text: event.date,order: 3}
   ]);
   const [edit,setEdit] = useState(0);
 
@@ -33,10 +33,10 @@ export default function Design() {
   const orderElements = () => {return layout.length}
 
   const componentList = [
-    {name: "Title",class: "title",style: {color: "#333333"},text: event.title,order: orderElements()},
-    {name: "Paragraph",class: "paragraph",style: {color: "#333333"},text:"(your text goes here)",order: orderElements()},
-    {name: "Event Times",class: "eventTimes",style: {color: "#333333"},text: event.start_time + " - " + event.end_time,order: orderElements()},
-    {name: "Event Date",class: "eventDate",style: {color: "#333333"},text: event.date,order: orderElements()}
+    {name: "Title",class: "title",color: "#333333",text: event.title,order: orderElements()},
+    {name: "Paragraph",class: "paragraph",color: "#333333",text:"(your text goes here)",order: orderElements()},
+    {name: "Event Times",class: "eventTimes",color: "#333333",text: event.start_time + " - " + event.end_time,order: orderElements()},
+    {name: "Event Date",class: "eventDate",color: "#333333",text: event.date,order: orderElements()}
   ];
 
   const addButtons = componentList.map((component) => 
@@ -60,7 +60,7 @@ export default function Design() {
         // console.log("got it at: " + element.order)
         const updatedElement = {
           ...element,
-          text: event.target.value,
+          [event.target.getAttribute("attr")]: event.target.value,
         };
         return updatedElement;
       }else{

@@ -51,8 +51,25 @@ export default function Design() {
 
   const setElementState = (event) => {
     console.log(event.target.value);
-    console.log(event.target)
-    console.log(layout[edit]);
+    console.log(event.target.getAttribute("attr"))
+    // console.log(event.target);
+    // console.log(layout[edit]);
+    
+    const newLayout = layout.map((element) => {
+      if (element.order === edit) {
+        // console.log("got it at: " + element.order)
+        const updatedElement = {
+          ...element,
+          text: event.target.value,
+        };
+        return updatedElement;
+      }else{
+        // console.log("nah: " + element.order)
+        return element;
+      }
+    })
+    // console.log(newLayout);
+    setLayout(newLayout);
   };
 
   // map over layout

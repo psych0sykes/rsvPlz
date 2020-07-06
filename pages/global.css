@@ -18,13 +18,15 @@ button{
     margin: 10px;
 }
 button:hover{
+    cursor: pointer;
     background-color: white;
     color: #eb9c91;
     border: 2px solid #eb9c91;
 }
 button:focus{
     border: none;
-    outline: #eb9c91 solid 2px;
+    outline: 2px solid lightgray;
+    border-radius: 10px;
 }
 form{
     display: flex;
@@ -61,6 +63,7 @@ input[type=range]{
     margin: 3px;
 }
 .softButton:hover{
+    cursor: pointer;
     border: 2px solid #9baaeb;
     background-color: #9baaeb;
     color: white;
@@ -76,6 +79,7 @@ input[type=range]{
     margin: 3px;
 }
 .mildButton:hover{
+    cursor: pointer;
     border: 2px solid #eb9c91;
     background-color: #eb9c91;
     color: white;
@@ -95,6 +99,10 @@ input[type=range]{
 .chunk:hover{
     outline: #eb9c91 solid 2px;
 }
-.editChunk{
-
+.pointer:hover{
+    cursor: pointer;
+}
+.accentHover:hover{
+    cursor: pointer;
+    color: #eb9c91;
 }

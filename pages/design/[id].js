@@ -17,17 +17,24 @@ export default function Design() {
     start_time: "10:00 AM",
     end_time: "12:00 PM"
   });
-  const [layout,setLayout] = useState([
+  const defaultLayout = [
     {name: "Title",class: "title",color: "#333333",text: event.title,order: 0},
     {name: "Paragraph",class: "paragraph",color: "#333333",text:"(your text goes here)",order: 1},
     {name: "Event Times",class: "eventTimes",color: "#333333",text: event.start_time + " - " + event.end_time,order: 2},
     {name: "Event Date",class: "eventDate",color: "#333333",text: event.date,order: 3}
-  ]);
+  ]
+  const [layout,setLayout] = useState(defaultLayout);
   const [edit,setEdit] = useState(0);
 
   const addElement = (newElement) => {
-    setLayout(layout => [...layout, newElement]);
-    console.log(layout);
+    setLayout(layout => [...layout, newElement])
+    console.log(layout)
+  };
+
+  const removeElement = (order) => {
+    console.log("remove " + order)
+    setLayout(layout.filter(item => item.order !== order));
+    console.log(layout)
   };
 
   const orderElements = () => {return layout.length}
@@ -73,13 +80,13 @@ export default function Design() {
   };
 
   // map over layout
-  const mapLayout = layout.map((element) =>
-    <Chunk key={element.order} element={element} show="true" edit={(event) => showEdit(event,element.order)}></Chunk>
+  const mapLayout = layout.map((element,index) =>
+    <Chunk key={index} element={element} show="true" edit={(event) => showEdit(event,index)}></Chunk>
   );
 
   return (
     <Page margin="10vw">
-      <EditChunk element={layout[edit]} display="block" handleState={setElementState}>wow</EditChunk>
+      <EditChunk element={layout[edit]} display="block" handleState={setElementState} handleRemove={removeElement}>wow</EditChunk>
       <Title size="50px">{event.title}</Title>
         <Section>
           {addButtons}

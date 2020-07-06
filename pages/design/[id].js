@@ -18,32 +18,33 @@ export default function Design() {
     end_time: "12:00 PM"
   });
   const defaultLayout = [
-    {name: "Title",class: "title",color: "#333333",text: event.title,order: 0},
-    {name: "Paragraph",class: "paragraph",color: "#333333",text:"(your text goes here)",order: 1},
-    {name: "Event Times",class: "eventTimes",color: "#333333",text: event.start_time + " - " + event.end_time,order: 2},
-    {name: "Event Date",class: "eventDate",color: "#333333",text: event.date,order: 3}
+    {name: "Title",class: "title",color: "#333333",text: event.title},
+    {name: "Paragraph",class: "paragraph",color: "#333333",text:"(your text goes here)"},
+    {name: "Event Times",class: "eventTimes",color: "#333333",text: event.start_time + " - " + event.end_time},
+    {name: "Event Date",class: "eventDate",color: "#333333",text: event.date}
   ]
   const [layout,setLayout] = useState(defaultLayout);
   const [edit,setEdit] = useState(0);
+  const closeEdit = () => setEdit();
 
   const addElement = (newElement) => {
     setLayout(layout => [...layout, newElement])
     console.log(layout)
+
   };
 
   const removeElement = (order) => {
     console.log("remove " + order)
     setLayout(layout.filter(item => item.order !== order));
     console.log(layout)
+    closeEdit()
   };
 
-  const orderElements = () => {return layout.length}
-
   const componentList = [
-    {name: "Title",class: "title",color: "#333333",text: event.title,order: orderElements()},
-    {name: "Paragraph",class: "paragraph",color: "#333333",text:"(your text goes here)",order: orderElements()},
-    {name: "Event Times",class: "eventTimes",color: "#333333",text: event.start_time + " - " + event.end_time,order: orderElements()},
-    {name: "Event Date",class: "eventDate",color: "#333333",text: event.date,order: orderElements()}
+    {name: "Title",class: "title",color: "#333333",text: event.title},
+    {name: "Paragraph",class: "paragraph",color: "#333333",text:"(your text goes here)"},
+    {name: "Event Times",class: "eventTimes",color: "#333333",text: event.start_time + " - " + event.end_time},
+    {name: "Event Date",class: "eventDate",color: "#333333",text: event.date}
   ];
 
   const addButtons = componentList.map((component) => 
@@ -62,16 +63,16 @@ export default function Design() {
     // console.log(event.target);
     // console.log(layout[edit]);
     
-    const newLayout = layout.map((element) => {
-      if (element.order === edit) {
-        // console.log("got it at: " + element.order)
+    const newLayout = layout.map((element,index) => {
+      if (index === edit) {
+        // console.log("got it at: " + index)
         const updatedElement = {
           ...element,
           [event.target.getAttribute("attr")]: event.target.value,
         };
         return updatedElement;
       }else{
-        // console.log("nah: " + element.order)
+        // console.log("nah: " + index)
         return element;
       }
     })
@@ -94,7 +95,7 @@ export default function Design() {
 
   return (
     <Page margin="10vw">
-      <EditChunk element={layout[edit]} display="block" handleState={setElementState} handleRemove={removeElement}>wow</EditChunk>
+      <EditChunk element={layout[edit]} display="block" handleState={setElementState} handleRemove={removeElement} handleClose={closeEdit}>wow</EditChunk>
       <Title size="50px">{event.title}</Title>
         <Section>
           {addButtons}

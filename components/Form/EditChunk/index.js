@@ -38,7 +38,7 @@ export default function EditChunk(props) {
         {/* <Input label="size (px)" value={element.size} type="range"></Input> */}
         <Section>
         <button className="mildButton" type="submit" value="Submit" onClick={(event)=>handleSubmit(event)}>save</button>
-        <button className="mildButton" value="close" onClick={(event)=>handleClose(event)}>close</button>
+        <button className="mildButton" value="close" onClick={()=>props.handleClose()}>close</button>
         <button className="softButton" value="close" onClick={(event)=>props.handleRemove(props.element.order)}>remove</button>
         </Section>
       </Section>
@@ -46,7 +46,7 @@ export default function EditChunk(props) {
     )
     }else{
       return(
-        <div>no chunks left to edit!</div>
+        <div></div>
       )
     }
   }

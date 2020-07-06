@@ -79,9 +79,17 @@ export default function Design() {
     setLayout(newLayout);
   };
 
+  const handleActive = (index) => {
+    if(edit === index){
+      return true
+    }else{
+      return false
+    }
+  }
+
   // map over layout
   const mapLayout = layout.map((element,index) =>
-    <Chunk key={index} element={element} show="true" edit={(event) => showEdit(event,index)}></Chunk>
+    <Chunk key={index} element={element} editable="true" active={handleActive(index)} edit={(event) => showEdit(event,index)}></Chunk>
   );
 
   return (

@@ -96,13 +96,13 @@ input[type=range]{
 .chunk{
     margin-right: 20px;
 }
-.chunk:hover{
-    outline: #eb9c91 solid 2px;
-}
 .pointer:hover{
     cursor: pointer;
 }
-.accentHover:hover{
+.highlight{
+    border: 2px solid #eb9c91;
+}
+.hoverAccent:hover{
     cursor: pointer;
     color: #eb9c91;
 }

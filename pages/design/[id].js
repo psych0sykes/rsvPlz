@@ -24,18 +24,18 @@ export default function Design() {
     {name: "Event Date",class: "eventDate",color: "#333333",text: event.date}
   ]
   const [layout,setLayout] = useState(defaultLayout);
-  const [edit,setEdit] = useState(0);
+  const [edit,setEdit] = useState();
+
   const closeEdit = () => setEdit();
 
   const addElement = (newElement) => {
     setLayout(layout => [...layout, newElement])
     console.log(layout)
-
   };
 
   const removeElement = (order) => {
     console.log("remove " + order)
-    setLayout(layout.filter(item => item.order !== order));
+    setLayout(layout.filter((item,index) => index !== order));
     console.log(layout)
     closeEdit()
   };
@@ -95,7 +95,7 @@ export default function Design() {
 
   return (
     <Page margin="10vw">
-      <EditChunk element={layout[edit]} display="block" handleState={setElementState} handleRemove={removeElement} handleClose={closeEdit}>wow</EditChunk>
+      <EditChunk element={layout[edit]} display="block" handleState={setElementState} handleRemove={()=>removeElement(edit)} handleClose={closeEdit}/>
       <Title size="50px">{event.title}</Title>
         <Section>
           {addButtons}

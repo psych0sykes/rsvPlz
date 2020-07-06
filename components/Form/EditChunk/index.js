@@ -16,19 +16,6 @@ export default function EditChunk(props) {
         border: "2px solid gray"
     }
 
-    function handleSubmit(event){
-      console.log(event);
-    }
-
-    function handleRemove(event){
-      console.log(event.target);
-      console.log(props.element)
-    }
-
-    function handleClose(event){
-      
-    }
-
     if(props.element){
     return (
     <div style={style}>
@@ -37,9 +24,8 @@ export default function EditChunk(props) {
         <Input label="color" type="text" value={props.element.color} cb={(event) => props.handleState(event)}></Input>
         {/* <Input label="size (px)" value={element.size} type="range"></Input> */}
         <Section>
-        <button className="mildButton" type="submit" value="Submit" onClick={(event)=>handleSubmit(event)}>save</button>
+        <button className="softButton" value="close" onClick={()=>props.handleRemove()}>remove</button>
         <button className="mildButton" value="close" onClick={()=>props.handleClose()}>close</button>
-        <button className="softButton" value="close" onClick={(event)=>props.handleRemove(props.element.order)}>remove</button>
         </Section>
       </Section>
     </div>

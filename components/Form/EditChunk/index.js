@@ -5,10 +5,9 @@ export default function EditChunk(props) {
 
     const style = {
         display: props.display ? "block" : "none",
-        position: "absolute",
-        width: "50vw",
-        right: "5vw",
-        left: "5vw",
+        // width: "70vw",
+        // right: "15vw",
+        // left: "15vw",
         padding: "10px",
         backgroundColor: "white",
         opacity: "1",
@@ -18,17 +17,19 @@ export default function EditChunk(props) {
 
     if(props.element){
     return (
-    <div style={style}>
-      <Section className="editChunk" direction="column">
-        <Input label="text" type="text" value={props.element.text} cb={(event) => props.handleState(event)}></Input>
-        <Input label="color" type="text" value={props.element.color} cb={(event) => props.handleState(event)}></Input>
-        {/* <Input label="size (px)" value={element.size} type="range"></Input> */}
-        <Section>
-        <button className="softButton" value="close" onClick={()=>props.handleRemove()}>remove</button>
-        <button className="mildButton" value="close" onClick={()=>props.handleClose()}>close</button>
+      <div style={{width: "100%",display: "flex",alignContent: "center",justifyContent: "center",position: "absolute",right: "0px"}}>
+      <div style={style}>
+        <Section className="editChunk" direction="column">
+          <Input label="text" type="text" value={props.element.text} cb={(event) => props.handleState(event)}></Input>
+          <Input label="color" type="text" value={props.element.color} cb={(event) => props.handleState(event)}></Input>
+          {/* <Input label="size (px)" value={element.size} type="range"></Input> */}
+          <Section>
+          <button className="softButton" value="close" onClick={()=>props.handleRemove()}>remove</button>
+          <button className="mildButton" value="close" onClick={()=>props.handleClose()}>close</button>
+          </Section>
         </Section>
-      </Section>
-    </div>
+      </div>
+      </div>
     )
     }else{
       return(

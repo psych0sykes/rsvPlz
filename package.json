@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "lodash": "^4.17.19",
     "mongodb": "^3.5.9",
     "next": "9.4.2",
     "next-connect": "^0.8.1",

@@ -26,7 +26,15 @@ export default function Design() {
   const [layout,setLayout] = useState(defaultLayout);
   const [edit,setEdit] = useState();
 
-  const closeEdit = () => setEdit();
+  const closeEdit = () => {
+    const getTest = async () => {
+      const res = await fetch('/api/mongo')
+      const json = await res.json()
+      console.log(json)
+    }
+    getTest()
+    setEdit()
+  };
 
   const addElement = (newElement) => {
     setLayout(layout => [...layout, newElement])

@@ -12,4 +12,12 @@ handler.get(async (req, res) => {
     res.json(doc);
 });
 
+handler.post(async (req, res) => {
+    // let data = req.body;
+    // data = JSON.parse(data);
+    let doc = await req.db.collection('firstcollection').insert({first: 'test'})
+    console.log(doc)
+    res.json({message: 'ok'});
+});
+
 export default handler;

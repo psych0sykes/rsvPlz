@@ -9,6 +9,7 @@ import EditChunk from "./../../components/Form/EditChunk";
 
 export default function Design() {
 
+  const axios = require('axios').default;
   const Router = useRouter();
   const {id} = Router.query;
   const [event,setEvent] = useState({
@@ -22,17 +23,18 @@ export default function Design() {
     {name: "Paragraph",class: "paragraph",color: "#333333",text:"(your text goes here)"},
     {name: "Event Times",class: "eventTimes",color: "#333333",text: event.start_time + " - " + event.end_time},
     {name: "Event Date",class: "eventDate",color: "#333333",text: event.date}
-  ]
+  ];
   const [layout,setLayout] = useState(defaultLayout);
   const [edit,setEdit] = useState();
 
   const closeEdit = () => {
-    const getTest = async () => {
-      const res = await fetch('/api/mongo')
-      const json = await res.json()
-      console.log(json)
-    }
-    getTest()
+    // TESTINT API ROUTE HERE =======\/========
+    // const getTest = async () => {
+    //   const res = await fetch('/api/mongo')
+    //   const json = await res.json()
+    //   console.log(json)
+    // }
+    // getTest()
     setEdit()
   };
 
@@ -61,13 +63,13 @@ export default function Design() {
 
   const showEdit = (e,order) => {
     // console.log(e.target);
-    console.log("edit layout item: " + order);
+    // console.log("edit layout item: " + order);
     setEdit(order)
   };
 
   const setElementState = (event) => {
-    console.log(event.target.value);
-    console.log(event.target.getAttribute("attr"))
+    // console.log(event.target.value);
+    // console.log(event.target.getAttribute("attr"))
     // console.log(event.target);
     // console.log(layout[edit]);
     

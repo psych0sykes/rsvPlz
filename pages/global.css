@@ -93,8 +93,8 @@ input[type=range]{
 .eventTimes{
     text-align: center;
 }
-.chunk{
-    margin-right: 20px;
+.chunk {
+    margin: 15px;
 }
 .pointer:hover{
     cursor: pointer;

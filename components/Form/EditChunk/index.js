@@ -17,7 +17,7 @@ export default function EditChunk(props) {
 
     if(props.element){
     return (
-      <div style={{width: "100%",display: "flex",alignContent: "center",justifyContent: "center",position: "absolute",right: "0px"}}>
+      <div style={{width: "100%",display: "flex",alignContent: "center",justifyContent: "center",position: "absolute",right: "0px",top: "25vh"}}>
       <div style={style}>
         <Section className="editChunk" direction="column">
           <Input label="text" type="text" value={props.element.text} cb={(event) => props.handleState(event)}></Input>

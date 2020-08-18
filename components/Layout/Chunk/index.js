@@ -9,10 +9,10 @@ export default function Chunk(props) {
     }
 
     return (
-      <div className={"chunk pointer " + (props.active ? "highlight" : "")} onClick={props.click}>
-        <div style={{float: "right",display: show ? "block" : "none"}} className={"hoverAccent"} onClick={props.edit}>
+      <div className={"chunk" + (props.active ? " highlight" : "") + (props.editable ? " pointer" : "")} onClick={props.click}>
+        {/* <div style={{float: "right",display: show ? "block" : "none"}} className={"hoverAccent"} onClick={props.edit}>
           edit
-        </div>
+        </div> */}
         <div className={props.element.class} style={style} order={props.element.order}>
             {props.element.text}
         </div>

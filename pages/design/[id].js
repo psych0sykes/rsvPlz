@@ -98,9 +98,16 @@ export default function Design() {
     }
   }
 
+  const handlePreview = (event) => {
+    event.preventDefault();
+    // console.log("click")
+    // INSERT API Post here
+    Router.push("/preview/[id]","/preview/test")
+}
+
   // map over layout
   const mapLayout = layout.map((element,index) =>
-    <Chunk key={index} element={element} editable="true" active={handleActive(index)} edit={(event) => showEdit(event,index)}></Chunk>
+    <Chunk key={index} element={element} editable="true" active={handleActive(index)} click={(event) => showEdit(event,index)}></Chunk>
   );
 
   return (
@@ -114,7 +121,8 @@ export default function Design() {
           {mapLayout}
         </Section>
         <Section>
-          <button>preview</button>
+          <button value="preview" onClick={(event) => handlePreview(event)}>preview</button>
+          <button value="save" onClick={() =>{}}>save</button>
         </Section>
     </Page>
   )

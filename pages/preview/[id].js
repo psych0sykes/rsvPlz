@@ -25,6 +25,13 @@ export default function Design() {
     {name: "Event Date",class: "eventDate",color: "#333333",text: event.date}
   ];
   const [layout,setLayout] = useState(defaultLayout);
+  
+  const handleEdit = (event) => {
+    event.preventDefault();
+    // console.log("click")
+    // INSERT API Post here
+    Router.push("/design/[id]","/design/test")
+    }
 
   // map over layout
   const mapLayout = layout.map((element,index) =>
@@ -37,6 +44,7 @@ export default function Design() {
           {mapLayout}
         </Section>
         <Section>
+            <button onClick={(event)=> handleEdit(event)}>edit</button>
             <button>save</button>
         </Section>
     </Page>

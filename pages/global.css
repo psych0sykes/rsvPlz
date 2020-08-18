@@ -11,7 +11,7 @@ button{
     background-color:#eb9c91;
     color: white;
     padding: 15px;
-    border: 0px solid #ffa06e;
+    border: 2px solid #ffa06e;
     border-radius: 10px;
     box-shadow: 2px 4px 4px lightgray;
     transition-duration: 0.2s;
